@@ -1,7 +1,7 @@
 background = {x = 0, speed = 100}
 background_elems = {trees_x = 0, ground_x = 0, trees_speed = 350, ground_speed = 400}
 
------ GROUND CLASS
+----- GROUND Entity
 background_elems.load = function()
   background_elems.ground = love.graphics.newImage("assets/ground.jpg") --size : 25*76
   background_elems.groundNum = math.ceil(1200/25)
@@ -32,7 +32,7 @@ background_elems.draw = function()
   end
 end
 
------ BACKGROUND CLASS
+----- BACKGROUND Entity
 background.update = function(dt)
   if background.x>-1200 then
     background.x = math.ceil(background.x - background.speed * dt)
