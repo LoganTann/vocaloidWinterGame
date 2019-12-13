@@ -1,5 +1,5 @@
 background = {x = 0, speed = 100}
-background_elems = {trees_x = 0, ground_x = 0, trees_speed = 350, ground_speed = 400}
+background_elems = {trees_x = 0, ground_x = 0, trees_speed = 330, ground_speed = 400, elaspedDistance=0}
 
 ----- GROUND Entity
 background_elems.load = function()
@@ -11,6 +11,7 @@ end
 
 background_elems.update = function(dt, elapsedTime)
   background_elems.ground_x = background_elems.ground_x + background_elems.ground_speed * dt
+  background_elems.elaspedDistance = background_elems.elaspedDistance + background_elems.ground_speed * dt
   background_elems.trees_x = background_elems.trees_x + background_elems.trees_speed * dt
   if background_elems.ground_x > 25 then
     background_elems.ground_x = background_elems.ground_x % 25
@@ -18,10 +19,7 @@ background_elems.update = function(dt, elapsedTime)
   if background_elems.trees_x > 300 then
     background_elems.trees_x = background_elems.trees_x % 300
   end
-
-  if background_elems.ground_speed < 1000 then
-    background_elems.ground_speed = background_elems.ground_speed + elapsedTime * 0.1
-  end
+  background.faster(dt*7)
 end
 
 background_elems.draw = function()
@@ -58,4 +56,12 @@ background.draw = function()
   love.graphics.draw(background.image, background.x+1200, 0)
 
   background_elems.draw()
+end
+
+background.faster = function(change)
+  if background_elems.ground_speed < 1000 then
+    background_elems.ground_speed = background_elems.ground_speed + change
+    background_elems.trees_speed = background_elems.trees_speed + change
+    background.speed = background.speed + change
+  end
 end

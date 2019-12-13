@@ -1,8 +1,8 @@
+elapsedTime = 0
 require("player")
 require("background")
 require("entities")
 
-elapsedTime = 0
 
 frameCount = 0
 lastTime = 0
@@ -26,7 +26,7 @@ end
 
 function love.update(dt)
   elapsedTime = elapsedTime + dt
-  if love.keyboard.isDown("space") then
+  if love.keyboard.isDown("space") or love.mouse.isDown(1) then
     player.jump()
   end
   background.update(dt, elapsedTime)
@@ -48,4 +48,10 @@ function love.keyreleased(key)
     love.window.close()
     os.exit(0)
   end
+end
+
+
+
+function nothing()
+  return 0
 end

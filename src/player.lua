@@ -12,11 +12,10 @@ player.load = function()
 
   player.ground = player.y     -- This makes the character land on the plaform.
 	player.y_velocity = 0        -- Whenever the character hasn't jumped yet, the Y-Axis velocity is always at 0.
-  -- TODO : change jump height depending of space time pressed
-	player.jump_height = -700    -- Whenever the character jumps, he can reach this height.
+	player.jump_height = -600    -- Whenever the character jumps, he can reach this height.
 	player.gravity = -1500        -- Whenever the character falls, he will descend at this rate.
   player.gameOver = false
-  player.life = 5
+  player.life = 3
   player.quitTime = -1
 end
 
@@ -64,6 +63,8 @@ player.jump = function()
   if player.y_velocity == 0 then
     player.frame = 2
 		player.y_velocity = player.jump_height
+  elseif player.y_velocity>-750 then
+    player.y_velocity = player.y_velocity - 11
 	end
 end
 
