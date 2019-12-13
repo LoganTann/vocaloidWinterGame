@@ -15,6 +15,9 @@ player.load = function()
   -- TODO : change jump height depending of space time pressed
 	player.jump_height = -700    -- Whenever the character jumps, he can reach this height.
 	player.gravity = -1500        -- Whenever the character falls, he will descend at this rate.
+  player.gameOver = false
+  player.life = 5
+  player.quitTime = -1
 end
 
 player.draw = function()
@@ -42,8 +45,15 @@ player.update = function(dt, elapsedTime)
     end
   end
 
-  -- This is in charge of collision, making sure that the character lands on the ground.
-  if player.y > player.ground then    -- The game checks if the player has jumped.
+
+  if player.gameOver then
+    if player.quitTime <= 0 then
+      player.y_velocity = player.jump_height * 0.7
+      player.quitTime = elapsedTime + 2
+    elseif elapsedTime > player.quitTime then
+      os.exit()
+    end
+  elseif player.y > player.ground then
     player.y_velocity = 0       -- The Y-Axis Velocity is set back to 0 meaning the character is on the ground again.
     player.y = player.ground    -- The Y-Axis Velocity is set back to 0 meaning the character is on the ground again.
   end
@@ -58,6 +68,10 @@ player.jump = function()
 end
 
 player.hurt = function(elapsedTime)
+  player.life = player.life - 1
+  if player.life <=0 then
+    player.gameOver = true
+  end
   player.blink = true
   player.blinkEnd = elapsedTime + 1.5
 end

@@ -9,7 +9,7 @@ background_elems.load = function()
   background_elems.treesNum = math.ceil(1200/300)
 end
 
-background_elems.update = function(dt)
+background_elems.update = function(dt, elapsedTime)
   background_elems.ground_x = background_elems.ground_x + background_elems.ground_speed * dt
   background_elems.trees_x = background_elems.trees_x + background_elems.trees_speed * dt
   if background_elems.ground_x > 25 then
@@ -17,6 +17,10 @@ background_elems.update = function(dt)
   end
   if background_elems.trees_x > 300 then
     background_elems.trees_x = background_elems.trees_x % 300
+  end
+
+  if background_elems.ground_speed < 1000 then
+    background_elems.ground_speed = background_elems.ground_speed + elapsedTime * 0.1
   end
 end
 
@@ -33,14 +37,14 @@ background_elems.draw = function()
 end
 
 ----- BACKGROUND Entity
-background.update = function(dt)
+background.update = function(dt, elapsedTime)
   if background.x>-1200 then
     background.x = math.ceil(background.x - background.speed * dt)
   else
     background.x = 0
   end
 
-  background_elems.update(dt)
+  background_elems.update(dt, elapsedTime)
 end
 
 background.load = function()
