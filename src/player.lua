@@ -25,7 +25,7 @@ player.draw = function()
   end
 end
 
-player.update = function(dt, elapsedTime)
+player.update = function(dt)
   if player.y_velocity ~= 0 then                                -- The game checks if player has "jumped" and left the ground.
 		player.y = player.y + player.y_velocity * dt                -- This makes the character ascend/jump.
 		player.y_velocity = player.y_velocity - player.gravity * dt -- This applies the gravity to the character.
@@ -68,7 +68,7 @@ player.jump = function()
 	end
 end
 
-player.hurt = function(elapsedTime)
+player.hurt = function()
   player.life = player.life - 1
   if player.life <=0 then
     player.gameOver = true

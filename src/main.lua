@@ -29,9 +29,9 @@ function love.update(dt)
   if love.keyboard.isDown("space") or love.mouse.isDown(1) then
     player.jump()
   end
-  background.update(dt, elapsedTime)
-  entities.update(dt, elapsedTime)
-  player.update(dt, elapsedTime)
+  background.update(dt)
+  entities.update(dt)
+  player.update(dt)
   if lastTime>1 then
     lastTime = 0
     fps = frameCount
