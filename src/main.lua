@@ -10,6 +10,7 @@ fps = 0
 function love.load()
   love.window.setMode(1200,600)
   love.window.setTitle("MikuSanta Winter Game")
+  love.window.setVSync(-1)
   background.load()
   entities.load()
   player.load()
