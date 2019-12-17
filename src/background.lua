@@ -1,5 +1,5 @@
 background = {x = 0, speed = 100}
-background_elems = {trees_x = 0, ground_x = 0, trees_speed = 230, ground_speed = 400, elaspedDistance=0}
+background_elems = {trees_x = 0, ground_x = 0, trees_speed = 200, ground_speed = 400, elaspedDistance=0}
 
 ----- GROUND Entity
 background_elems.load = function()
@@ -39,7 +39,7 @@ background.update = function(dt)
   if background.x>-1200 then
     background.x = math.ceil(background.x - background.speed * dt)
   else
-    background.x = 0
+    background.x = background.x%-1200
   end
 
   background_elems.update(dt)

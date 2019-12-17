@@ -7,6 +7,7 @@ require("entities")
 frameCount = 0
 lastTime = 0
 fps = 0
+
 function love.load()
   love.window.setMode(1200,600)
   love.window.setTitle("MikuSanta Winter Game")

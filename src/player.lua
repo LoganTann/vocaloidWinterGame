@@ -77,7 +77,7 @@ player.hurt = function()
   player.blinkEnd = elapsedTime + 1.5
 end
 
-player.hitbox = {left=141, top=101, right=197, bottom=197}
+player.hitbox = {left=140, top=20, right=197, bottom=197}
 
 player.hit = function(obj, obj_x, obj_y)
   return (not player.blink) and
