@@ -6,6 +6,7 @@ require("entities")
 
 bestScore = 0
 lifeSprite = nil
+logo = nil
 
 function love.load()
   love.window.setMode(1200,600)
@@ -13,6 +14,8 @@ function love.load()
   love.window.setVSync(-1)
   love.graphics.setNewFont("assets/PatrickHandSC-Regular.ttf", 40)
   lifeSprite = love.graphics.newImage("assets/life.png")
+  logo = love.graphics.newImage("assets/logo.png")
+  logo:setFilter("nearest", "nearest")
   background.load()
   entities.load()
   player.load()
@@ -30,7 +33,8 @@ function love.draw()
     love.graphics.printf("Score : "..math.ceil(background_elems.elaspedDistance * 0.003), 0, 0, 1200, "center")
   else
     love.graphics.printf("Best Score : "..bestScore, 0, 0, 1200, "center")
-    love.graphics.printf("Jump to start !", 0, 50, 1200, "center")
+    love.graphics.printf("Jump to start !", 0, 40, 1200, "center")
+    love.graphics.draw(logo, 1200*0.5, 100, 0, 1.5, 1.5, 300*0.5, 0)
   end
 end
 
