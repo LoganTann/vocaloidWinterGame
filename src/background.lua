@@ -1,5 +1,5 @@
-background = {x = 0, speed = 100}
-background_elems = {trees_x = 0, ground_x = 0, trees_speed = 200, ground_speed = 400, elaspedDistance=0}
+background = {x = 0}
+background_elems = {}
 
 ----- GROUND Entity
 background_elems.load = function()
@@ -35,6 +35,22 @@ background_elems.draw = function()
 end
 
 ----- BACKGROUND Entity
+background.reset = function()
+  background.x = 0
+  background.speed = 100
+  background_elems.trees_speed = 200
+  background_elems.ground_speed = 400
+  background_elems.trees_x = 0
+  background_elems.ground_x = 0
+  background_elems.elaspedDistance = 0
+end
+
+background.load = function()
+  background.image = love.graphics.newImage("assets/bg.jpg")
+  background.reset()
+  background_elems.load()
+end
+
 background.update = function(dt)
   if background.x>-1200 then
     background.x = math.ceil(background.x - background.speed * dt)
@@ -43,12 +59,6 @@ background.update = function(dt)
   end
 
   background_elems.update(dt)
-end
-
-background.load = function()
-  background.image = love.graphics.newImage("assets/bg.jpg")
-  --size : 1200*600
-  background_elems.load()
 end
 
 background.draw = function()

@@ -1,19 +1,25 @@
 player = {}
 player.load = function()
+  player.reset()
   player.x = 30
-  player.y = 600 - 200 - 75 -- scrh - player h - ground h
   player.image = {}
-  player.frame = 1
   player.changeFrameAt = 0
-  player.show = true
-
   player.image[1] = love.graphics.newImage("assets/player1.png")
   player.image[2] = love.graphics.newImage("assets/player2.png")
-
   player.ground = player.y     -- This makes the character land on the plaform.
 	player.y_velocity = 0        -- Whenever the character hasn't jumped yet, the Y-Axis velocity is always at 0.
 	player.jump_height = -600    -- Whenever the character jumps, he can reach this height.
 	player.gravity = -1500        -- Whenever the character falls, he will descend at this rate.
+end
+
+player.reset = function()
+  player.y = 600 - 200 - 75 -- scrh - player h - ground h
+  player.show = true
+  player.frame = 1
+  player.changeFrameAt = 0
+  player.show = true
+  player.y = 325
+  player.frame = 1
   player.gameOver = false
   player.life = 3
   player.quitTime = -1
@@ -50,7 +56,7 @@ player.update = function(dt)
       player.y_velocity = player.jump_height * 0.7
       player.quitTime = elapsedTime + 2
     elseif elapsedTime > player.quitTime then
-      os.exit()
+      --nothing
     end
   elseif player.y > player.ground then
     player.y_velocity = 0       -- The Y-Axis Velocity is set back to 0 meaning the character is on the ground again.

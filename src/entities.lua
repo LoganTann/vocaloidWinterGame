@@ -2,50 +2,63 @@ twoPi = 2*math.pi
 
 -- ENTITIES DECLARATION
 
-stone = {list = {}}
+stone = {}
 stone.load = function()
   stone.y = 446 --600-76-78
-  stone.spawn = {
-    interval = {1 *10, 3 *10}, -- n seconds * const=10
-    ndInterval = {0.1 *10, 3 *10},
-    last = 0, next = 1,
-    probability = 60
-  }
   stone.hitbox = {left = 16, top = 12, right=117, bottom=78}
   stone.image = love.graphics.newImage("assets/stone.png")
   stone.touched = player.hurt
+  stone.reset = function()
+    stone.list = {}
+    stone.spawn = {
+      interval = {1 *10, 3 *10}, -- n seconds * const=10
+      ndInterval = {0.1 *10, 3 *10},
+      last = 0, next = 1,
+      probability = 60
+    }
+  end
+  stone.reset()
 end
 
-crystal = {list = {}}
+crystal = {}
 crystal.load = function()
   crystal.y = 446 --600-76-78
-  crystal.spawn = {
-    interval = {5 *10, 7 *10}, -- n seconds * const=10
-    ndInterval = {0.1 *10, 1 *10},
-    last = 0, next = 0.5,
-    probability = 80
-  }
   crystal.hitbox = {left = 16, top = 12, right=70, bottom=78}
   crystal.image = love.graphics.newImage("assets/crystal.png")
   crystal.touched = player.hurt
+  crystal.reset = function()
+    crystal.list = {}
+    crystal.spawn = {
+      interval = {5 *10, 7 *10}, -- n seconds * const=10
+      ndInterval = {0.1 *10, 1 *10},
+      last = 0, next = 0.5,
+      probability = 80
+    }
+  end
+  crystal.reset()
 end
 
-iceBlock = {list = {}}
+iceBlock = {}
 iceBlock.load = function()
   iceBlock.y = 0
-  iceBlock.spawn = {
-    interval = {5 *10, 7 *10}, -- n seconds * const=10
-    ndInterval = {5 *10, 7 *10},
-    last = 0, next = 5,
-    probability = 70
-  }
   iceBlock.hitbox = {left = 15, top = 10, right=85, bottom=100}
   iceBlock.image = love.graphics.newImage("assets/iceBlock.png")
+  iceBlock.fallSpeed = 700
+  iceBlock.reset = function()
+    iceBlock.list = {}
+    iceBlock.spawn = {
+      interval = {5 *10, 7 *10}, -- n seconds * const=10
+      ndInterval = {5 *10, 7 *10},
+      last = 0, next = 5,
+      probability = 70
+    }
+  end
+  iceBlock.reset()
+
   iceBlock.touched = function(this)
     this.touch = true
     background.faster(100)
   end
-  iceBlock.fallSpeed = 700
   iceBlock.update = function(this, dt)
     if this.y<426 then
       this.y = this.y + iceBlock.fallSpeed * dt
@@ -53,19 +66,24 @@ iceBlock.load = function()
   end
 end
 
-healBlock = {list = {}}
+healBlock = {}
 healBlock.load = function()
   healBlock.y = 0
-  healBlock.spawn = {
-    interval = {5 *10, 7 *10}, -- n seconds * const=10
-    ndInterval = {5 *10, 7 *10},
-    last = 0, next = 10,
-    probability = 10
-  }
   healBlock.hitbox = {left = 15, top = 10, right=85, bottom=100}
   healBlock.image1 = love.graphics.newImage("assets/healBox.png")
   healBlock.image2 = love.graphics.newImage("assets/heal.png")
   healBlock.image = healBlock.image1
+  healBlock.reset = function()
+    healBlock.list = {}
+    healBlock.spawn = {
+      interval = {5 *10, 7 *10}, -- n seconds * const=10
+      ndInterval = {5 *10, 7 *10},
+      last = 0, next = 10,
+      probability = 10
+    }
+  end
+  healBlock.reset()
+
   healBlock.touched = function(this)
     this.touch = true
     player.life = player.life + 1
@@ -84,18 +102,23 @@ healBlock.load = function()
 end
 
 
-snowman = {list = {}}
+snowman = {}
 snowman.load = function()
   snowman.y = 0
-  snowman.spawn = {
-    interval = {5 *10, 7 *10}, -- n seconds * const=10
-    ndInterval = {5 *10, 7 *10},
-    last = 0, next = 1,
-    probability = 50
-  }
   snowman.hitbox = {left = 0, top = 16, right=66, bottom=82}
   snowman.image = love.graphics.newImage("assets/SnowMan.png")
   snowman.touched = player.hurt
+  snowman.reset = function()
+    snowman.list = {}
+    snowman.spawn = {
+      interval = {5 *10, 7 *10}, -- n seconds * const=10
+      ndInterval = {5 *10, 7 *10},
+      last = 0, next = 1,
+      probability = 50
+    }
+  end
+  snowman.reset()
+
   snowman.update = function(this, dt)
     if (this.r<0) then
       -- this is init !
@@ -127,10 +150,18 @@ entities.update = function(dt)
 end
 
 entities.draw = function()
-    for i,o in ipairs(entities.list) do
-      entities.objDraw(o)
-    end
+  for i,o in ipairs(entities.list) do
+    entities.objDraw(o)
+  end
 end
+
+entities.reset = function()
+  for i in pairs(entities.list) do
+    entities.list[i].reset()
+  end
+  entities.maxSpawnDistance = 0
+end
+
 
 entities.objUpdate = function(ent, dt)
   for i in pairs(ent.list) do

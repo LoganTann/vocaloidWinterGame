@@ -1,4 +1,5 @@
 elapsedTime = 0
+playing = false
 require("player")
 require("background")
 require("entities")
@@ -20,7 +21,9 @@ end
 
 function love.draw()
   background.draw()
-  entities.draw()
+  if playing then
+    entities.draw()
+  end
   player.draw()
   love.graphics.print("Vies : "..player.life, 0, 0)
   love.graphics.print(fps.." FPS", 1200 - 45, 0)
@@ -32,7 +35,9 @@ function love.update(dt)
     player.jump()
   end
   background.update(dt)
-  entities.update(dt)
+  if playing then
+    entities.update(dt)
+  end
   player.update(dt)
   if lastTime>1 then
     lastTime = 0
@@ -49,6 +54,12 @@ function love.keyreleased(key)
   if key == "escape" then
     love.window.close()
     os.exit(0)
+  elseif key=="return" then
+    playing = true
+    elapsedTime = 0
+    player.reset()
+    entities.reset()
+    background.reset()
   end
 end
 
