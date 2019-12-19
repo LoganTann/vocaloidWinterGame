@@ -3,6 +3,7 @@ player.load = function()
   player.reset()
   player.x = 30
   player.image = {}
+  player.frame = 1
   player.changeFrameAt = 0
   player.image[1] = love.graphics.newImage("assets/player1.png")
   player.image[2] = love.graphics.newImage("assets/player2.png")
@@ -15,7 +16,6 @@ end
 player.reset = function()
   player.y = 600 - 200 - 75 -- scrh - player h - ground h
   player.show = true
-  player.frame = 1
   player.changeFrameAt = 0
   player.show = true
   player.y = 325
@@ -56,7 +56,7 @@ player.update = function(dt)
       player.y_velocity = player.jump_height * 0.7
       player.quitTime = elapsedTime + 2
     elseif elapsedTime > player.quitTime then
-      --nothing
+      onGameOver()
     end
   elseif player.y > player.ground then
     player.y_velocity = 0       -- The Y-Axis Velocity is set back to 0 meaning the character is on the ground again.

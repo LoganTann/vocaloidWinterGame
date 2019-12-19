@@ -19,7 +19,7 @@ background_elems.update = function(dt)
   if background_elems.trees_x > 300 then
     background_elems.trees_x = background_elems.trees_x % 300
   end
-  background.faster(dt*7)
+  background.faster(dt * 7)
 end
 
 background_elems.draw = function()
@@ -36,28 +36,35 @@ end
 
 ----- BACKGROUND Entity
 background.reset = function()
-  background.x = 0
   background.speed = 100
   background_elems.trees_speed = 200
   background_elems.ground_speed = 400
-  background_elems.trees_x = 0
-  background_elems.ground_x = 0
   background_elems.elaspedDistance = 0
 end
 
 background.load = function()
+  background.x = 0
+  background_elems.trees_x = 0
+  background_elems.ground_x = 0
   background.image = love.graphics.newImage("assets/bg.jpg")
   background.reset()
   background_elems.load()
 end
 
 background.update = function(dt)
-  if background.x>-1200 then
+  if background.x > -1200 then
     background.x = math.ceil(background.x - background.speed * dt)
   else
     background.x = background.x%-1200
   end
-
+  if player.life <= 0 and background.speed > 100 then
+    background.speed = background.speed - 100*dt
+    if background.speed<10 then
+      background.speed = 10
+    end
+    background_elems.trees_speed = math.abs(background_elems.trees_speed - 100*dt)
+    background_elems.ground_speed = math.abs(background_elems.trees_speed - 100*dt)
+  end
   background_elems.update(dt)
 end
 

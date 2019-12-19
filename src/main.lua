@@ -4,15 +4,15 @@ require("player")
 require("background")
 require("entities")
 
-
-frameCount = 0
-lastTime = 0
-fps = 0
+bestScore = 0
+lifeSprite = nil
 
 function love.load()
   love.window.setMode(1200,600)
   love.window.setTitle("MikuSanta Winter Game")
   love.window.setVSync(-1)
+  love.graphics.setNewFont("assets/PatrickHandSC-Regular.ttf", 40)
+  lifeSprite = love.graphics.newImage("assets/life.png")
   background.load()
   entities.load()
   player.load()
@@ -21,33 +21,30 @@ end
 
 function love.draw()
   background.draw()
-  if playing then
-    entities.draw()
-  end
+  entities.draw()
   player.draw()
-  love.graphics.print("Vies : "..player.life, 0, 0)
-  love.graphics.print(fps.." FPS", 1200 - 45, 0)
+  if playing then
+    for i=1,player.life do
+      love.graphics.draw(lifeSprite, -15 + 30 * i, 15)
+    end
+    love.graphics.printf("Score : "..math.ceil(background_elems.elaspedDistance * 0.003), 0, 0, 1200, "center")
+  else
+    love.graphics.printf("Best Score : "..bestScore, 0, 0, 1200, "center")
+    love.graphics.printf("Jump to start !", 0, 50, 1200, "center")
+  end
 end
 
 function love.update(dt)
   elapsedTime = elapsedTime + dt
   if love.keyboard.isDown("space") or love.mouse.isDown(1) then
     player.jump()
+    if not playing then
+      resetGame()
+    end
   end
   background.update(dt)
-  if playing then
-    entities.update(dt)
-  end
+  entities.update(dt)
   player.update(dt)
-  if lastTime>1 then
-    lastTime = 0
-    fps = frameCount
-    frameCount = 0
-  else
-    frameCount = frameCount + 1
-    lastTime = lastTime+dt
-  end
-
 end
 
 function love.keyreleased(key)
@@ -55,16 +52,21 @@ function love.keyreleased(key)
     love.window.close()
     os.exit(0)
   elseif key=="return" then
-    playing = true
-    elapsedTime = 0
-    player.reset()
-    entities.reset()
-    background.reset()
+    resetGame()
   end
 end
 
+function resetGame()
+  playing = true
+  elapsedTime = 0
+  player.reset()
+  entities.reset()
+  background.reset()
+end
 
-
-function nothing()
-  return 0
+function onGameOver()
+  if playing and background_elems.elaspedDistance * 0.003 > bestScore then
+    bestScore = math.ceil(background_elems.elaspedDistance * 0.003)
+    playing = false
+  end
 end

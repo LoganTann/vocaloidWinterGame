@@ -179,7 +179,7 @@ entities.objUpdate = function(ent, dt)
     end
   end
 
-  if elapsedTime > ent.spawn.next and background_elems.elaspedDistance > entities.maxSpawnDistance then
+  if playing and elapsedTime > ent.spawn.next and background_elems.elaspedDistance > entities.maxSpawnDistance then
     if entities.objAdd(ent) then
       if math.random()>0.5 then --50 percents of chances to spawn between 50 and 100px
         entities.maxSpawnDistance = background_elems.elaspedDistance + math.random(5, 10)*10
