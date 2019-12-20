@@ -7,6 +7,7 @@ require("entities")
 bestScore = 0
 lifeSprite = nil
 logo = nil
+firstTime = true
 
 function love.load()
   love.window.setMode(1200,600)
@@ -41,10 +42,10 @@ end
 function love.update(dt)
   elapsedTime = elapsedTime + dt
   if love.keyboard.isDown("space") or love.mouse.isDown(1) then
-    player.jump()
     if not playing then
       resetGame()
     end
+    player.jump(firstTime)
   end
   background.update(dt)
   entities.update(dt)
@@ -69,8 +70,11 @@ function resetGame()
 end
 
 function onGameOver()
-  if playing and background_elems.elaspedDistance * 0.003 > bestScore then
-    bestScore = math.ceil(background_elems.elaspedDistance * 0.003)
+  if playing then
+    if background_elems.elaspedDistance * 0.003 > bestScore then
+      bestScore = math.ceil(background_elems.elaspedDistance * 0.003)
+    end
     playing = false
+    firstTime = false
   end
 end

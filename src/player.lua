@@ -2,6 +2,7 @@ player = {}
 player.load = function()
   player.reset()
   player.x = 30
+  player.y = 600 - 200 - 75 -- scrh - player h - ground h
   player.image = {}
   player.frame = 1
   player.changeFrameAt = 0
@@ -14,15 +15,15 @@ player.load = function()
 end
 
 player.reset = function()
-  player.y = 600 - 200 - 75 -- scrh - player h - ground h
   player.show = true
   player.changeFrameAt = 0
-  player.show = true
-  player.y = 325
   player.frame = 1
   player.gameOver = false
   player.life = 3
   player.quitTime = -1
+  if not firstTime then
+    player.x = -240
+  end
 end
 
 player.draw = function()
@@ -41,6 +42,10 @@ player.update = function(dt)
         player.changeFrameAt = elapsedTime+0.15
       end
 	end
+
+  if player.x < 30 then
+    player.x = player.x + 100*dt
+  end
 
   if player.blink then
     player.show = elapsedTime*10 %2 > 1 --if 10^-1 is pair => change each 100 ms
@@ -68,7 +73,7 @@ player.jump = function()
   -- The player's Y-Axis Velocity is set to it's Jump Height.
   if player.y_velocity == 0 then
     player.frame = 2
-		player.y_velocity = player.jump_height
+    player.y_velocity = player.jump_height
   elseif player.y_velocity>-750 then
     player.y_velocity = player.y_velocity - 11
 	end
