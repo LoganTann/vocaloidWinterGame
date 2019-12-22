@@ -61,7 +61,9 @@ player.update = function(dt)
       player.y_velocity = player.jump_height * 0.7
       player.quitTime = elapsedTime + 2
     elseif elapsedTime > player.quitTime then
-      onGameOver()
+      onGameOver(dt)
+    else
+      titleAlpha = titleAlpha - dt
     end
   elseif player.y > player.ground then
     player.y_velocity = 0       -- The Y-Axis Velocity is set back to 0 meaning the character is on the ground again.

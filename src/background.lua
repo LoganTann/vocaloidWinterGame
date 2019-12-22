@@ -58,12 +58,12 @@ background.update = function(dt)
     background.x = background.x%-1200
   end
   if player.life <= 0 and background.speed > 100 then
-    background.speed = background.speed - 100*dt
+    background.speed = background.speed - 200*dt
     if background.speed<10 then
       background.speed = 10
     end
-    background_elems.trees_speed = math.abs(background_elems.trees_speed - 100*dt)
-    background_elems.ground_speed = math.abs(background_elems.trees_speed - 100*dt)
+    background_elems.trees_speed = math.abs(background_elems.trees_speed - 200*dt)
+    background_elems.ground_speed = math.abs(background_elems.trees_speed - 200*dt)
   end
   background_elems.update(dt)
 end
