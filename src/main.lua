@@ -14,6 +14,10 @@ function love.load()
   lifeSprite = love.graphics.newImage("assets/life.png")
   logo = love.graphics.newImage("assets/logo.png")
   logo:setFilter("nearest", "nearest")
+  bgm = love.audio.newSource("assets/bgm.mp3", "stream")
+  bgm:setLooping(true)
+  bgm:play()
+  bgm:setVolume(0.4)
 
   -- Win Config
   window = love.graphics.newCanvas(1200, 600)

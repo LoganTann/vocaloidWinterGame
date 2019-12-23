@@ -12,6 +12,8 @@ player.load = function()
 	player.y_velocity = 0        -- Whenever the character hasn't jumped yet, the Y-Axis velocity is always at 0.
 	player.jump_height = -600    -- Whenever the character jumps, he can reach this height.
 	player.gravity = -1500        -- Whenever the character falls, he will descend at this rate.
+  player.damageSnd = love.audio.newSource("assets/Damage.wav", "static")
+  player.jmpSnd = love.audio.newSource("assets/jump.wav", "static")
 end
 
 player.reset = function()
@@ -76,9 +78,10 @@ player.jump = function()
   if player.y_velocity == 0 then
     player.frame = 2
     player.y_velocity = player.jump_height
+	player.jmpSnd:play()
   elseif player.y_velocity>-750 then
     player.y_velocity = player.y_velocity - 11
-	end
+  end
 end
 
 player.hurt = function()
@@ -88,6 +91,7 @@ player.hurt = function()
   end
   player.blink = true
   player.blinkEnd = elapsedTime + 1.5
+  player.damageSnd:play()
 end
 
 player.hitbox = {left=140, top=20, right=197, bottom=197}
