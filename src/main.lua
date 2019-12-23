@@ -10,6 +10,7 @@ function love.load()
   bestScore = 0
   titleAlpha = 1
   scaleParams = { scale = 1, translate = {x=0, y=0} }
+  pause = false
   lifeSprite = love.graphics.newImage("assets/life.png")
   logo = love.graphics.newImage("assets/logo.png")
   logo:setFilter("nearest", "nearest")
@@ -40,6 +41,9 @@ function love.draw()
     background.draw()
     entities.draw()
     player.draw()
+    if pause then
+      love.graphics.printf({{0.6,0,0},"Paused\n(Press P to continue)"}, -600, 250, 1200, "center", 0, 2, 2)
+    end
     if playing then
       for i=1,player.life do
         love.graphics.draw(lifeSprite, -15 + 30 * i, 15)
@@ -57,6 +61,10 @@ function love.draw()
 end
 
 function love.update(dt)
+  if pause then
+    return 0
+  end
+
   elapsedTime = elapsedTime + dt
 
   if love.keyboard.isDown("space") or love.mouse.isDown(1) then
@@ -74,6 +82,8 @@ end
 function love.keyreleased(key)
   if key == "escape" then
     love.event.quit()
+  elseif key == "p" then
+    pause = not pause
   end
 end
 
