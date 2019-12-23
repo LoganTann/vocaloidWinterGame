@@ -165,7 +165,7 @@ end
 
 entities.objUpdate = function(ent, dt)
   for i in pairs(ent.list) do
-    o = ent.list[i]
+    local o = ent.list[i]
     o.x = o.x - background_elems.ground_speed * dt
     if o.x < -124 then
       if type(ent.onDestroy)=="function" then

@@ -13,4 +13,5 @@ function love.conf(t)
     t.modules.video = false
 
     t.window.vsync = -1
+    t.window.resizable = true
 end
