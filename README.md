@@ -1,5 +1,5 @@
 # vocaloidWinterGame
-Secret Santa gift for [@miraigirl](https://www.instagram.com/miraigirl01/) [#vocaloidSecretSanta2019](https://www.instagram.com/explore/tags/vocaloidsecretsanta2019]
+Secret Santa gift for [@miraigirl](https://www.instagram.com/miraigirl01/) [#vocaloidSecretSanta2019](https://www.instagram.com/explore/tags/vocaloidsecretsanta2019)
 This project is also a candidate for the Bonjour Le Monde ! discord server christmas challenge
 
 Game created with Lua using the [Love2D framework](https://love2d.org/)
