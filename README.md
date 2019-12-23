@@ -9,8 +9,8 @@ A simple winter game for the #vocaloidSecretSanta2019 and the BonjourLeMonde chr
 
 ## Builds
 
-* Windows (.exe) :
-* GameFile :
+* Windows (.exe) : https://logantann.github.io/vocaloidWinterGame/build/vocaWinterGame_w32.zip
+* GameFile : https://logantann.github.io/vocaloidWinterGame/dist/vocaloidWinterGame.love
 * Linux/MAC/Android : See instructions of section [Run the Source or GameFile](#Run-the-Source-or-GameFile)
 
 ## Run the Source or GameFile
@@ -28,7 +28,7 @@ A simple winter game for the #vocaloidSecretSanta2019 and the BonjourLeMonde chr
 ### Android :
 
 1. Download Love2D app on PlayStore and the gameFile
-2. Download and open the `.love` file with love2D via your file explorer/browser (e.g. Solid Explorer/X-plore> open file as */*, select LÖVE for Android)
+2. Download and open the `.love` file with love2D using your file explorer/browser (e.g. Solid Explorer/X-plore> open file as */*, select LÖVE for Android)
 
 ### Create a gameFile or make a build
 
