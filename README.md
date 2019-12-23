@@ -1,5 +1,5 @@
 # vocaloidWinterGame
-Secret Santa gift for [@miraigirl](https://www.instagram.com/miraigirl01/) [#vocaloidSecretSanta2019](https://www.instagram.com/explore/tags/vocaloidsecretsanta2019)
+Secret Santa gift for [@miraigirl](https://www.instagram.com/miraigirl01/) [#vocaloidSecretSanta2019](https://www.instagram.com/explore/tags/vocaloidsecretsanta2019)  
 This project is also a candidate for the Bonjour Le Monde ! discord server christmas challenge
 
 Game created with Lua using the [Love2D framework](https://love2d.org/)
@@ -12,8 +12,8 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 
 ## Builds
 
-* Windows (.exe) : https://logantann.github.io/vocaloidWinterGame/build/vocaWinterGame_w32.zip
-* GameFile : https://logantann.github.io/vocaloidWinterGame/dist/vocaloidWinterGame.love
+* Windows (.exe) : [https://logantann.github.io/vocaloidWinterGame/build/vocaWinterGame_w32.zip](https://logantann.github.io/vocaloidWinterGame/build/vocaWinterGame_w32.zip)
+* GameFile : [logantann.github.io/vocaloidWinterGame/dist/vocaloidWinterGame.love](https://logantann.github.io/vocaloidWinterGame/dist/vocaloidWinterGame.love)
 * Linux/MAC/Android : See instructions of section [Run the Source or GameFile](#Run-the-Source-or-GameFile)
 
 ## Run the Source or GameFile
@@ -23,7 +23,7 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 1.	Download the love2D Binary (Zipped version or AppImage for Linux) at https://love2d.org/
 2.	Download the gameFile, then drag and drop it to the love binary  
 	Or using the console :
-	```bash
+	```
 	love [arg]
 	```
 	Where arg is the `.love` gameFile or the `src/` folder
@@ -35,7 +35,7 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 
 ### Create a gameFile or make a build
 
-Check this tutorial : https://love2d.org/wiki/Game_Distribution
+Check this tutorial : [love2d.org/wiki/Game_Distribution](https://love2d.org/wiki/Game_Distribution)
 
 ## Credits
 
