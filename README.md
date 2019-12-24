@@ -6,6 +6,7 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 <p align="center">
     <img src="images/love.jpg" alt="android screen"/>
 </p>
+
 ## How to play
 
 * Jump : Space / Right click
@@ -22,8 +23,8 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 
 ### PC / MAC:
 
-1.	Download the love2D Binary (Zipped version or AppImage for Linux) at https://love2d.org/
-2.	Download the gameFile, then drag and drop it to the love binary  
+1.	Download the love2D Binary (Zipped version or AppImage for Linux) at [love2d.org](https://love2d.org/)
+2.	[Download the gameFile](https://logantann.github.io/vocaloidWinterGame/dist/vocaloidWinterGame.love), then drag and drop it to the love binary  
 	Or using the console :
 	```
 	love [arg]
@@ -32,8 +33,8 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 
 ### Android :
 
-1. Download Love2D app on PlayStore and the gameFile
-2. Download and open the `.love` file with love2D using your browser
+1. Download [Love2D app on the PlayStore](https://play.google.com/store/apps/details?id=org.love2d.android)
+2. [Download and open the `.love` GameFile](https://logantann.github.io/vocaloidWinterGame/dist/vocaloidWinterGame.love) with love2D using your browser
 
 <p align="center">
     <img alt="open using chrome" src="images/open.jpg"/>
@@ -49,7 +50,7 @@ Programming : Me, using Love2D game library
 
 Art :
 * Miku sprite : Me
-* [https://www.gameart2d.com/winter-platformer-game-tileset.html](Winter Tileset) + some edits by me
+* [Winter Tileset](https://www.gameart2d.com/winter-platformer-game-tileset.html) + some edits by me
 
 Sound :
 * [BGM : Padoru Padoru - Hatsune Miku VOCALOID COVER](https://www.youtube.com/watch?v=-rZp4kMSjzQ)
