@@ -4,7 +4,7 @@ Secret Santa gift for [@miraigirl](https://www.instagram.com/miraigirl01/) [#voc
 Game created with Lua using the [Love2D framework](https://love2d.org/)
 
 <p align=center>
-	![Android Screen](images/love.jpg)
+    <img src="images/love.jpg" alt="android screen"/>
 </p>
 ## How to play
 
@@ -35,7 +35,7 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 1. Download Love2D app on PlayStore and the gameFile
 2. Download and open the `.love` file with love2D using your browser
 <p align="center>
-![open using chrome](images/open.jpg)
+    <img alt="open using chrome" src="images/open.jpg"/>
 </p>
 ### Create a gameFile or make a build
 
