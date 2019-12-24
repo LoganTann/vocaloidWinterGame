@@ -3,6 +3,9 @@ Secret Santa gift for [@miraigirl](https://www.instagram.com/miraigirl01/) [#voc
 
 Game created with Lua using the [Love2D framework](https://love2d.org/)
 
+<p align=center>
+	![Android Screen](images/love.jpg)
+</p>
 ## How to play
 
 * Jump : Space / Right click
@@ -30,8 +33,10 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 ### Android :
 
 1. Download Love2D app on PlayStore and the gameFile
-2. Download and open the `.love` file with love2D using your file explorer/browser (e.g. Solid Explorer/X-plore> open file as */*, select LÖVE for Android)
-
+2. Download and open the `.love` file with love2D using your browser
+<p align="center>
+![open using chrome](images/open.jpg)
+</p>
 ### Create a gameFile or make a build
 
 Check this tutorial : [love2d.org/wiki/Game_Distribution](https://love2d.org/wiki/Game_Distribution)
