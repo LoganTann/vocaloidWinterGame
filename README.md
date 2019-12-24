@@ -34,9 +34,11 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 
 1. Download Love2D app on PlayStore and the gameFile
 2. Download and open the `.love` file with love2D using your browser
-<p align="center>
+
+<p align="center">
     <img alt="open using chrome" src="images/open.jpg"/>
 </p>
+
 ### Create a gameFile or make a build
 
 Check this tutorial : [love2d.org/wiki/Game_Distribution](https://love2d.org/wiki/Game_Distribution)
