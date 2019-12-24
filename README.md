@@ -3,7 +3,7 @@ Secret Santa gift for [@miraigirl](https://www.instagram.com/miraigirl01/) [#voc
 
 Game created with Lua using the [Love2D framework](https://love2d.org/)
 
-<p align=center>
+<p align="center">
     <img src="images/love.jpg" alt="android screen"/>
 </p>
 ## How to play
