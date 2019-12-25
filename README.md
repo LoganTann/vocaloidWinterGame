@@ -49,7 +49,7 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 2. [Download and open the `.love` GameFile](https://logantann.github.io/vocaloidWinterGame/dist/vocaloidWinterGame.love) with love2D using your browser
 
 <p align="center">
-    <img alt="open using chrome" src="images/open.jpg" style="max-height: 40vh;"/>
+    <img alt="open using chrome" src="images/open.jpg"/>
 </p>
 
 ### Create a gameFile or make a build
