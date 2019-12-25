@@ -9,9 +9,21 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 
 ## How to play
 
+### Controls
+
 * Jump : Space / Right click
 * Pause : P key
 * Quit : Escape
+
+### Entities
+
+|                                       Sprite                                       |                     Entity                     |
+|:----------------------------------------------------------------------------------:|:----------------------------------------------:|
+|   ![stone](https://logantann.github.io/vocaloidWinterGame/src/assets/stone.png)    |             **Stone**<br>Remove 1 ❤️            |
+| ![crystal](https://logantann.github.io/vocaloidWinterGame/src/assets/crystal.png)  |   **Crystal**<br>Same as a stone but smaller   |
+| ![SnowMan](https://logantann.github.io/vocaloidWinterGame/src/assets/SnowMan.png)  | <br>**Snowman**<br>Same as a stone but can fly |
+|![iceBlock](https://logantann.github.io/vocaloidWinterGame/src/assets/iceBlock.png) |       <br>**Ice Block**<br>Incease speed       |
+| ![healBox](https://logantann.github.io/vocaloidWinterGame/src/assets/healBox.png)  |          <br>**Heal Block**<br>Add 1 ❤️         |
 
 ## Builds
 
@@ -37,7 +49,7 @@ Game created with Lua using the [Love2D framework](https://love2d.org/)
 2. [Download and open the `.love` GameFile](https://logantann.github.io/vocaloidWinterGame/dist/vocaloidWinterGame.love) with love2D using your browser
 
 <p align="center">
-    <img alt="open using chrome" src="images/open.jpg"/>
+    <img alt="open using chrome" src="images/open.jpg" style="max-height: 40vh;"/>
 </p>
 
 ### Create a gameFile or make a build
